@@ -72,7 +72,7 @@ public class Character{
 	/*
 	 * "How can i implement a physics mechanic that resembles horizontal movement
 	 * like inertia where running kind of drags based off of its momentum. How can i
-	 * implement this into my players lateral (X) move function?" prompt (25 lines).
+	 * implement this into my games movement function?" prompt (25 lines).
 	 * ChatGPT, Nov 22 Version, OpenAI, 22 Nov. 2023, chat.openai.com/chat
 	 */
 	public void move(int[] KEY_MOVE) {
