@@ -47,6 +47,12 @@ public class Character{
 		timer = 0;
 	}
 	
+	public void resetPositions() {
+		startPosition %= 2;
+		player.x = (SCREEN_WIDTH / 8 * (startPosition++) - PLAYER_HEIGHT / 2);
+		player.y = 70;
+	}
+	
 
 	public void boundsCheck() {
 		if (player.x < 0) {
@@ -143,6 +149,8 @@ public class Character{
 				return true;
 			}
 		}
+		isJumping = true;
+		isFloored = false;
 		velocityY += GRAVITY;
 		player.y += velocityY * deltaTime;
 
@@ -184,10 +192,13 @@ public class Character{
 	}
 	
 	private void setEffects(float modifier) {
-		if(modifier != 0.5f) jump_velocity *= modifier;
 		acceleration *= modifier;
 		deceleration *= modifier;
 		maxSpeed *= modifier;
+	}
+	
+	public Rectangle getRect() {
+		return player;
 	}
 
 	public boolean getIsJumping() {

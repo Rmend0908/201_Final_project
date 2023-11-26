@@ -28,7 +28,7 @@ public class Floors {
 		platforms.add(new Rectangle(80, 717, 150, 37)); // Done
 		platforms.add(new Rectangle(590, 705, 150, 37)); // Done
 		platforms.add(new Rectangle(795, 785, 165, 37)); // Done
-		platforms.add(new Rectangle(970, 653, 160, 37));
+		platforms.add(new Rectangle(970, 653, 160, 37)); // Done
 
 		// Tiny x1
 		platforms.add(new Rectangle(0, 295, 95, 80)); // Done

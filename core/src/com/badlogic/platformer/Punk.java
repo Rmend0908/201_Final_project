@@ -123,7 +123,7 @@ public class Punk extends Character {
 			batch.draw(playerIdle, getPlayerX(), getPlayerY());
 		}
 	}
-
+	
 	public void inputs(ArrayList<PowerUp> items) {
 		move(KEY_MOVE);
 		checkForPowerUp(items);
