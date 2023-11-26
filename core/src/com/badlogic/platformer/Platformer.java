@@ -10,7 +10,6 @@ import com.badlogic.gdx.graphics.Color;
 import com.badlogic.gdx.graphics.OrthographicCamera;
 import com.badlogic.gdx.graphics.Texture;
 import com.badlogic.gdx.graphics.g2d.SpriteBatch;
-import com.badlogic.gdx.graphics.glutils.ShapeRenderer;
 import com.badlogic.gdx.math.Rectangle;
 import com.badlogic.gdx.utils.ScreenUtils;
 
@@ -24,7 +23,6 @@ public class Platformer extends ApplicationAdapter {
 	private Punk player2;
 	private ArrayList<PowerUp> items;
 	private WinPortal portal;
-	private ShapeRenderer shapeRenderer;
 
 	private boolean GAME_OVER = false;
 
@@ -73,11 +71,6 @@ public class Platformer extends ApplicationAdapter {
 		}
 		batch.end();
 
-//		shapeRenderer.begin(ShapeRenderer.ShapeType.Filled);
-//		shapeRenderer.setColor(new Color(1, 0, 0, 0.9f)); // 50% transparent red
-//	    shapeRenderer.rect(755, 675, 115, 37); // Draw a rectangle (x, y, width, height)
-//	    shapeRenderer.end();
-
 		if (checkFinished()) {
 			System.out.println("Game finished. To reset press 'SPACE'");
 			if (Gdx.input.isKeyPressed(Input.Keys.SPACE)) {
@@ -87,15 +80,6 @@ public class Platformer extends ApplicationAdapter {
 				// Update leaderboard
 			}
 		}
-//		if (Gdx.input.justTouched()) { // Check if the screen was just touched/clicked
-//	        int x = Gdx.input.getX();
-//	        int y = Gdx.input.getY();
-//
-//	        // Flip the y-coordinate to match the libGDX coordinate system where y=0 is the bottom
-//	        int flippedY = Gdx.graphics.getHeight() - y;
-//
-//	        System.out.println("Screen touched at: (" + x + ", " + flippedY + ")");
-//	    }
 	}
 
 	public void resetPositions() {
