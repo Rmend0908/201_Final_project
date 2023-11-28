@@ -6,14 +6,18 @@ import java.util.ArrayList;
 import com.badlogic.gdx.ApplicationAdapter;
 import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.Input;
+import com.badlogic.gdx.Screen;
 import com.badlogic.gdx.graphics.Color;
 import com.badlogic.gdx.graphics.OrthographicCamera;
 import com.badlogic.gdx.graphics.Texture;
 import com.badlogic.gdx.graphics.g2d.SpriteBatch;
+import com.badlogic.gdx.graphics.glutils.ShapeRenderer;
 import com.badlogic.gdx.math.Rectangle;
 import com.badlogic.gdx.utils.ScreenUtils;
 
-public class Platformer extends ApplicationAdapter {
+public class Platformer implements Screen {
+	final Manager manager;
+	
 	private final int SCREEN_WIDTH = 1512;
 	private final int SCREEN_HEIGHT = 982;
 	private Texture backgroundImage;
@@ -23,11 +27,12 @@ public class Platformer extends ApplicationAdapter {
 	private Punk player2;
 	private ArrayList<PowerUp> items;
 	private WinPortal portal;
+	private ShapeRenderer shapeRenderer;
 
 	private boolean GAME_OVER = false;
 
-	@Override
-	public void create() {
+	public Platformer(Manager manager) {
+		this.manager = manager;
 		batch = new SpriteBatch();
 		backgroundImage = new Texture(Gdx.files.internal("race.png"));
 
@@ -41,7 +46,7 @@ public class Platformer extends ApplicationAdapter {
 	}
 
 	@Override
-	public void render() {
+	public void render(float delta) {
 		ScreenUtils.clear(1, 0, 0, 1);
 
 		player1.biker_render();
@@ -70,6 +75,11 @@ public class Platformer extends ApplicationAdapter {
 			player2.inputs(items);
 		}
 		batch.end();
+
+		// update physics
+		player1.updatePhysics();
+		player2.updatePhysics();
+		
 
 		if (checkFinished()) {
 			System.out.println("Game finished. To reset press 'SPACE'");
@@ -112,5 +122,37 @@ public class Platformer extends ApplicationAdapter {
 		portal.portal_dispose();
 		for (PowerUp p : items)
 			p.powerup_dispose();
+	}
+
+	@Override
+	public void show() {
+		// TODO Auto-generated method stub
+		
+	}
+
+
+
+	@Override
+	public void resize(int width, int height) {
+		// TODO Auto-generated method stub
+		
+	}
+
+	@Override
+	public void pause() {
+		// TODO Auto-generated method stub
+		
+	}
+
+	@Override
+	public void resume() {
+		// TODO Auto-generated method stub
+		
+	}
+
+	@Override
+	public void hide() {
+		// TODO Auto-generated method stub
+		
 	}
 }
